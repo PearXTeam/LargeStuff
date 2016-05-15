@@ -1,0 +1,53 @@
+package ru.pearx.largestuff.items;
+
+import java.util.List;
+
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.world.World;
+import ru.pearx.largestuff.Main;
+
+public class ItemEnderTeleport extends ItemCoordStore
+{
+    public ItemEnderTeleport()
+	{
+		setCreativeTab(Main.TabLargeStuff);
+		setMaxStackSize(1);
+		setUnlocalizedName("enderTeleport");
+		setRegistryName(Main.ModID, "enderTeleport");
+	}
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+	{
+		super.onItemRightClick(stack, w, p, hand);
+		if(!w.isRemote)
+		{
+			if(!p.isSneaking())
+			{
+				NBTTagCompound tag = stack.getTagCompound();
+				if (tag != null)
+				{
+					if(tag.hasKey("dim") && tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ"))
+						Main.proxy.Teleport(w, p, tag.getInteger("dim"), tag.getInteger("posX"), tag.getInteger("posY"), tag.getInteger("posZ"), SoundEvents.entity_endermen_teleport, SoundCategory.PLAYERS);
+				}
+			}
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b) 
+	{
+		l.add(I18n.format("item.enderTeleport.lore1", new Object[0]));
+		l.add(I18n.format("item.enderTeleport.lore2", new Object[0]));
+		l.add(I18n.format("item.enderTeleport.lore3", new Object[0]));
+	}
+}

@@ -1,0 +1,22 @@
+item.primalTalisman.name=Primal Talisman
+item.primalTalisman.lore1=Teleports you to the global spawn point.
+item.enderTeleport.name=Ender Teleport
+item.enderTeleport.lore1=Teleports you to the given location.
+item.enderTeleport.lore2=Shift+Right-Click to bind a teleport.
+item.enderTeleport.lore3=Right-Click to teleport.
+item.desMetal.name=Des Metal
+item.desShard.name=Des Shard
+item.desRod.name=Des Rod
+item.desCase.name=Des Case
+item.desPlate.name=Des Plate
+item.desDoubleRod.name=Double Des Rod
+item.desFocus.name=Des Focus
+item.desFocus.lore1=Shift+Right-Click to bind an item.
+item.endermanFlash.name=Enderman Flash
+
+tile.desBlock.name=Des Block
+tile.enderTeleportingStation.name=Ender Teleporting Station
+
+itemGroup.largestuff=LargeStuff
+
+largestuff.oreDictNames=Ore Dictionary Names:

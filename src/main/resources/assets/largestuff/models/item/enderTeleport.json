@@ -1,0 +1,6 @@
+{
+  "parent":"largestuff:item/def",
+  "textures": {
+    "layer0":"largestuff:items/enderTeleport"
+  }
+}
