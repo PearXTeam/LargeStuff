@@ -157,10 +157,10 @@ public class EnderTeleportingStation extends BlockContainer
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World w, BlockPos pos, Entity e)
+	public void onEntityCollidedWithBlock(World w, BlockPos p, IBlockState s, Entity e)
 	{
 		if(Main.UseCollisionEvent)
-			EnderTeleportingStationEntity.Use(w, e, pos);
+			EnderTeleportingStationEntity.Use(w, e, p);
 	}
 
 	@Override

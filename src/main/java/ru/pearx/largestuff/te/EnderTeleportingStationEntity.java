@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.items.LSItems;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,13 +39,14 @@ public class EnderTeleportingStationEntity extends TileEntity implements ITickab
 	}
 
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
 		super.writeToNBT(tag);
 		tag.setDouble("posX", this.posX);
 		tag.setDouble("posY", this.posY);
 		tag.setDouble("posZ", this.posZ);
 		tag.setInteger("dim", this.dim);
+		return tag;
 	}
 
 	public boolean isSetuped()
@@ -60,8 +62,9 @@ public class EnderTeleportingStationEntity extends TileEntity implements ITickab
 		this.dim = dim;
 	}
 
+	@Nullable
 	@Override
-	public Packet getDescriptionPacket()
+	public SPacketUpdateTileEntity getUpdatePacket()
 	{
 		NBTTagCompound nbtTag = new NBTTagCompound();
 		writeToNBT(nbtTag);
@@ -102,7 +105,7 @@ public class EnderTeleportingStationEntity extends TileEntity implements ITickab
 			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity) te;
 			if (ets.isSetuped())
 			{
-				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.entity_endermen_teleport, SoundCategory.PLAYERS);
+				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
 			}
 		}
 	}

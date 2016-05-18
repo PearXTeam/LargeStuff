@@ -27,7 +27,7 @@ public class Main
 {
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
-	public static final String Version = "2.0.2";
+	public static final String Version = "2.1.0";
 
 	public static boolean ShowOreDict;
 	public static int DimID;
@@ -81,14 +81,14 @@ public class Main
 					"#P#",
 					"#F#",
 					"S#S",
-					'P', Blocks.yellow_flower, 'F', "dirt", 'S', "stickWood"
+					'P', Blocks.YELLOW_FLOWER, 'F', "dirt", 'S', "stickWood"
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.PrimalTalisman), new Object[]
 				{
 						"#P#",
 						"#F#",
 						"S#S",
-						'P', Blocks.red_flower, 'F', "dirt", 'S', "stickWood"
+						'P', Blocks.RED_FLOWER, 'F', "dirt", 'S', "stickWood"
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesCase), new Object[]
 				{
@@ -102,7 +102,7 @@ public class Main
 					"#P#",
 					"#R#",
 					"#CB",
-					'P', Items.ender_pearl, 'R', "stickDes", 'C', LSItems.DesCase, 'B', Blocks.stone_button
+					'P', Items.ENDER_PEARL, 'R', "stickDes", 'C', LSItems.DesCase, 'B', Blocks.STONE_BUTTON
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesPlate), new Object[]
 				{
@@ -111,7 +111,7 @@ public class Main
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesMetal), new Object[]
 				{
-						"gemDiamond", Blocks.obsidian, Items.ender_pearl
+						"gemDiamond", Blocks.OBSIDIAN, Items.ENDER_PEARL
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesShard, 9), new Object[]
 				{
@@ -151,7 +151,7 @@ public class Main
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesFocus), new Object[]
 				{
-						"nuggetDes", "nuggetDes", Items.ender_eye
+						"nuggetDes", "nuggetDes", Items.ENDER_EYE
 				}));
 		proxy.RegisterRender();
 		MinecraftForge.EVENT_BUS.register(new LSEvents());

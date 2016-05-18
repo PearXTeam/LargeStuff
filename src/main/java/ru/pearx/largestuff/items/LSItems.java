@@ -20,8 +20,8 @@ public class LSItems
 	public static Item EndermanFlash = new Item().setUnlocalizedName("endermanFlash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "endermanFlash");
 	public static Item DesFocus = new ItemDesFocus();
 	
-	public static Block BlockEnderTeleportingStation = new EnderTeleportingStation(Material.rock);
-	public static Block BlockDes = new DesBlock(Material.rock);
+	public static Block BlockEnderTeleportingStation = new EnderTeleportingStation(Material.ROCK);
+	public static Block BlockDes = new DesBlock(Material.ROCK);
 	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "desBlock");
 	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "enderTeleportingStation");
 }

@@ -16,7 +16,7 @@ public class DesBlock extends Block
 		setHardness(150.0F);
 		setResistance(6000.0F);
 		setHarvestLevel("pickaxe", 3);
-        setStepSound(SoundType.METAL);
+        setSoundType(SoundType.METAL);
 		setRegistryName(Main.ModID, "desBlock");
 	}
 

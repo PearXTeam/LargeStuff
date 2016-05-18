@@ -28,7 +28,7 @@ public class SharedProxy
 			    { 
 			        for (int k = (int)p.posZ - 5; k < p.posX + 5; k++)
 			        { 
-			               if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.obsidian || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.portal)
+			               if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.OBSIDIAN || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.PORTAL)
 			               {
 			                       world.setBlockToAir(new BlockPos(i, j, k));
 			               }
@@ -52,7 +52,7 @@ public class SharedProxy
 		}
 		if(p instanceof EntityPlayer)
 		{
-			world.playSound((EntityPlayer) p, spawnCoords, SoundEvents.block_grass_break, SoundCategory.AMBIENT, 1, 1);
+			world.playSound((EntityPlayer) p, spawnCoords, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.AMBIENT, 1, 1);
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class SharedProxy
 				{
 					for (int k = (int)p.posZ - 5; k < p.posX + 5; k++)
 					{
-						if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.obsidian || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.portal)
+						if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.OBSIDIAN || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.PORTAL)
 						{
 							world.setBlockToAir(new BlockPos(i, j, k));
 						}
