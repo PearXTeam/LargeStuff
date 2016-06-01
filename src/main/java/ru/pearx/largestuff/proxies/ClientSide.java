@@ -55,5 +55,9 @@ public class ClientSide extends CommonProxy
 		ItemRenderer.reg(LSItems.ItemBlockDes);
 		ItemRenderer.reg(LSItems.ItemBlockEnderTeleportingStation);
 		ItemRenderer.reg(LSItems.EndermanFlash);
+		ItemRenderer.reg(LSItems.DesHelmet);
+		ItemRenderer.reg(LSItems.DesSuit);
+		ItemRenderer.reg(LSItems.DesLeggings);
+		ItemRenderer.reg(LSItems.DesBoots);
 	}
 }

@@ -63,6 +63,10 @@ public class Main
 		GameRegistry.register(LSItems.EndermanFlash);
 		GameRegistry.register(LSItems.ItemBlockDes);
 		GameRegistry.register(LSItems.ItemBlockEnderTeleportingStation);
+		GameRegistry.register(LSItems.DesHelmet);
+		GameRegistry.register(LSItems.DesSuit);
+		GameRegistry.register(LSItems.DesLeggings);
+		GameRegistry.register(LSItems.DesBoots);
 
 		OreDictionary.registerOre("nuggetDes", LSItems.DesShard);
 		OreDictionary.registerOre("stickDes", LSItems.DesRod);

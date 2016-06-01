@@ -20,3 +20,8 @@ tile.enderTeleportingStation.name=Ender Teleporting Station
 itemGroup.largestuff=LargeStuff
 
 largestuff.oreDictNames=Ore Dictionary Names:
+
+item.desHelmet.name=Des Helmet
+item.desSuit.name=Des Suit
+item.desLeggings.name=Des Leggings
+item.desBoots.name=Des Boots

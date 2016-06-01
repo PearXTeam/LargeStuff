@@ -2,9 +2,11 @@ package ru.pearx.largestuff.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import ru.pearx.largestuff.Main;
+import ru.pearx.largestuff.armor.DesArmor;
 import ru.pearx.largestuff.te.EnderTeleportingStation;
 
 public class LSItems 
@@ -24,4 +26,9 @@ public class LSItems
 	public static Block BlockDes = new DesBlock(Material.ROCK);
 	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "desBlock");
 	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "enderTeleportingStation");
+
+	public static Item DesHelmet = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.HEAD);
+	public static Item DesSuit = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.CHEST);
+	public static Item DesLeggings = new DesArmor(DesArmor.Des, 2, EntityEquipmentSlot.LEGS);
+	public static Item DesBoots = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.FEET);
 }
