@@ -25,3 +25,5 @@ item.desHelmet.name=Des Helmet
 item.desSuit.name=Des Suit
 item.desLeggings.name=Des Leggings
 item.desBoots.name=Des Boots
+item.desArmor.disabled=§4Wear is not a full set of Des Armor. Armor features disabled!
+item.desArmor.enabled=§2Wear a full set of Des Armor. Armor features enabled!
