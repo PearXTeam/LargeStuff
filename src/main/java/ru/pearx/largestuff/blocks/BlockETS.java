@@ -1,4 +1,4 @@
-package ru.pearx.largestuff.te;
+package ru.pearx.largestuff.blocks;
 
 import java.util.Random;
 
@@ -19,17 +19,17 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.items.LSItems;
+import ru.pearx.largestuff.te.EnderTeleportingStationEntity;
 
-public class EnderTeleportingStation extends BlockContainer
+public class BlockETS extends ModelBlockBase
 {
-	public EnderTeleportingStation(Material mat) {
+	public BlockETS(Material mat)
+	{
 		super(mat);
-		setCreativeTab(Main.TabLargeStuff);
 		setUnlocalizedName("enderTeleportingStation");
 		setRegistryName(Main.ModID, "enderTeleportingStation");
         setHardness(1.0f);
         setResistance(3.0f);
-        setHarvestLevel("pickaxe", 0);
 	}
 
     @Override
@@ -37,17 +37,6 @@ public class EnderTeleportingStation extends BlockContainer
     {
         return new AxisAlignedBB(0F, 0F, 0F, 1F, 0.2F, 1F);
     }
-
-    @Override
-	public EnumBlockRenderType getRenderType(IBlockState state)
-	{
-		return EnumBlockRenderType.INVISIBLE;
-	}
-
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
 
 	@Override
 	public TileEntity createNewTileEntity(World w, int i) {
@@ -103,7 +92,7 @@ public class EnderTeleportingStation extends BlockContainer
 	}
 
 	@Override
-	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumHand hand, ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ)
+	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumHand hand, ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
 		TileEntity te = w.getTileEntity(pos);
 		if(te instanceof EnderTeleportingStationEntity)
@@ -121,19 +110,18 @@ public class EnderTeleportingStation extends BlockContainer
 			}
 			else
 			{
-				if(p.getHeldItem(hand) != null)
+				if(held != null)
 				{
-					if(p.getHeldItem(hand).getItem() == LSItems.DesFocus)
+					if(held.getItem() == LSItems.DesFocus)
 					{
-						ItemStack stack = p.getHeldItem(hand);
-						NBTTagCompound tag = stack.getTagCompound();
+						NBTTagCompound tag = held.getTagCompound();
 						if(tag != null)
 						{
 							if(tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ") && tag.hasKey("dim"))
 							{
 								if(!p.isCreative())
 								{
-									--p.getHeldItem(hand).stackSize;
+									--held.stackSize;
 								}
 								if(!ets.isSetuped())
 								{
@@ -162,9 +150,4 @@ public class EnderTeleportingStation extends BlockContainer
 		if(Main.UseCollisionEvent)
 			EnderTeleportingStationEntity.Use(w, e, p);
 	}
-
-	@Override
-	public boolean isFullCube(IBlockState state) {return false;}
-
-
 }

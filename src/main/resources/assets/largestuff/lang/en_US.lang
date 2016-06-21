@@ -16,6 +16,7 @@ item.endermanFlash.name=Enderman Flash
 
 tile.desBlock.name=Des Block
 tile.enderTeleportingStation.name=Ender Teleporting Station
+tile.damager.name=Damager
 
 itemGroup.largestuff=LargeStuff
 
@@ -25,5 +26,7 @@ item.desHelmet.name=Des Helmet
 item.desSuit.name=Des Suit
 item.desLeggings.name=Des Leggings
 item.desBoots.name=Des Boots
-item.desArmor.disabled=§4Wear is not a full set of Des Armor. Armor features disabled!
-item.desArmor.enabled=§2Wear a full set of Des Armor. Armor features enabled!
+
+desArmor.disabled=§4Wear is not a full set of Des Armor. Armor features disabled!
+desArmor.enabled=§2Wear a full set of Des Armor. Armor features enabled!
+desArmor.tooltip.1=§2 -Blocks 50 percents of any damage.

@@ -25,6 +25,9 @@ import java.util.ArrayList;
 @Mod(modid = Main.ModID, name = Main.ModName, version = Main.Version)
 public class Main 
 {
+	@Mod.Instance(Main.ModID)
+	public static Main instance;
+
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
 	public static final String Version = "2.1.0";
@@ -67,6 +70,10 @@ public class Main
 		GameRegistry.register(LSItems.DesSuit);
 		GameRegistry.register(LSItems.DesLeggings);
 		GameRegistry.register(LSItems.DesBoots);
+		//GameRegistry.register(LSItems.ItemBlockMagicalAlloyer);
+		//GameRegistry.register(LSItems.BlockMagicalAlloyer);
+		GameRegistry.register(LSItems.BlockDamager);
+		GameRegistry.register(LSItems.ItemBlockDamager);
 
 		OreDictionary.registerOre("nuggetDes", LSItems.DesShard);
 		OreDictionary.registerOre("stickDes", LSItems.DesRod);
@@ -182,4 +189,8 @@ public class Main
 		}
 	};
 
+	public enum SlotType
+	{
+		IN, OUT
+	}
 }

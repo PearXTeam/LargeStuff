@@ -55,7 +55,7 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
     public ArmorProperties getProperties(EntityLivingBase p, ItemStack armor, DamageSource source, double damage, int slot)
     {
         if(isFullSet(p))
-            return new ArmorProperties(1, 1, MathHelper.floor_double(damage * 2));
+            return new ArmorProperties(1, 1, MathHelper.floor_double(damage * 4));
         return new ArmorProperties(1, 1, 0);
     }
 
@@ -77,9 +77,12 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
         Iterable<ItemStack> v = p.getArmorInventoryList();
 
         if(isFullSet(p))
-            l.add(I18n.format("item.desArmor.enabled"));
+        {
+            l.add(I18n.format("desArmor.enabled"));
+            l.add(I18n.format("desArmor.tooltip.1"));
+        }
         else
-            l.add(I18n.format("item.desArmor.disabled"));
+            l.add(I18n.format("desArmor.disabled"));
     }
 
     public static boolean isFullSet(EntityLivingBase p)

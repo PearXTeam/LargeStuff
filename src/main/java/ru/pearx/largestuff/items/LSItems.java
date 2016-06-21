@@ -7,7 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.armor.DesArmor;
-import ru.pearx.largestuff.te.EnderTeleportingStation;
+import ru.pearx.largestuff.blocks.BlockDamager;
+import ru.pearx.largestuff.blocks.BlockETS;
+import ru.pearx.largestuff.blocks.DesBlock;
 
 public class LSItems 
 {
@@ -22,10 +24,15 @@ public class LSItems
 	public static Item EndermanFlash = new Item().setUnlocalizedName("endermanFlash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "endermanFlash");
 	public static Item DesFocus = new ItemDesFocus();
 	
-	public static Block BlockEnderTeleportingStation = new EnderTeleportingStation(Material.ROCK);
-	public static Block BlockDes = new DesBlock(Material.ROCK);
+	public static Block BlockEnderTeleportingStation = new BlockETS(Material.ROCK);
+	//public static Block BlockMagicalAlloyer = new BlockMagicalAlloyer();
+	public static Block BlockDes = new DesBlock();
+	public static Block BlockDamager = new BlockDamager();
+
 	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "desBlock");
 	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "enderTeleportingStation");
+	//public static Item ItemBlockMagicalAlloyer = new ItemBlock(BlockMagicalAlloyer);
+	public static Item ItemBlockDamager = new ItemBlock(BlockDamager).setRegistryName(Main.ModID, "damager");
 
 	public static Item DesHelmet = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.HEAD);
 	public static Item DesSuit = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.CHEST);

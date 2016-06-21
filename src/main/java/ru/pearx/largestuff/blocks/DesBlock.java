@@ -1,4 +1,4 @@
-package ru.pearx.largestuff.items;
+package ru.pearx.largestuff.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -8,9 +8,9 @@ import ru.pearx.largestuff.Main;
 public class DesBlock extends Block
 {
 
-	protected DesBlock(Material mat)
+	public DesBlock()
 	{
-		super(mat);
+		super(Material.ROCK);
 		setCreativeTab(Main.TabLargeStuff);
 		setUnlocalizedName("desBlock");
 		setHardness(150.0F);
