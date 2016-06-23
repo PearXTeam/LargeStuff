@@ -2,13 +2,11 @@ package ru.pearx.largestuff.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -19,15 +17,15 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.items.LSItems;
-import ru.pearx.largestuff.te.EnderTeleportingStationEntity;
+import ru.pearx.largestuff.te.TE_ETS;
 
 public class BlockETS extends ModelBlockBase
 {
 	public BlockETS(Material mat)
 	{
 		super(mat);
-		setUnlocalizedName("enderTeleportingStation");
-		setRegistryName(Main.ModID, "enderTeleportingStation");
+		setUnlocalizedName("ets");
+		setRegistryName(Main.ModID, "ets");
         setHardness(1.0f);
         setResistance(3.0f);
 	}
@@ -40,16 +38,16 @@ public class BlockETS extends ModelBlockBase
 
 	@Override
 	public TileEntity createNewTileEntity(World w, int i) {
-		return new EnderTeleportingStationEntity();
+		return new TE_ETS();
 	}
 
 	@Override
 	public void breakBlock(World w, BlockPos pos, IBlockState state)
 	{
 		TileEntity te = w.getTileEntity(pos);
-		if(te instanceof EnderTeleportingStationEntity)
+		if(te instanceof TE_ETS)
 		{
-			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity)te;
+			TE_ETS ets = (TE_ETS)te;
 			if(ets.isSetuped())
 			{
 				ItemStack stack = new ItemStack(LSItems.DesFocus, 1);
@@ -79,9 +77,9 @@ public class BlockETS extends ModelBlockBase
 		w.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.05D, pos.getY() + 1.8D, pos.getZ() + 0.95D, 0, -1D, 0);
 		w.spawnParticle(EnumParticleTypes.PORTAL, pos.getX() + 0.05D, pos.getY() + 1.8D, pos.getZ() + 0.95D, 0, -1D, 0);
 		TileEntity te = w.getTileEntity(pos);
-		if (te instanceof EnderTeleportingStationEntity)
+		if (te instanceof TE_ETS)
 		{
-			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity) te;
+			TE_ETS ets = (TE_ETS) te;
 			if (ets.isSetuped())
 			{
 				for (int i = 0; i < 50; i++) {
@@ -95,9 +93,9 @@ public class BlockETS extends ModelBlockBase
 	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumHand hand, ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
 	{
 		TileEntity te = w.getTileEntity(pos);
-		if(te instanceof EnderTeleportingStationEntity)
+		if(te instanceof TE_ETS)
 		{
-			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity)te;
+			TE_ETS ets = (TE_ETS)te;
 			if(p.isSneaking())
 			{
 				if(ets.isSetuped())
@@ -148,6 +146,6 @@ public class BlockETS extends ModelBlockBase
 	public void onEntityCollidedWithBlock(World w, BlockPos p, IBlockState s, Entity e)
 	{
 		if(Main.UseCollisionEvent)
-			EnderTeleportingStationEntity.Use(w, e, p);
+			TE_ETS.Use(w, e, p);
 	}
 }

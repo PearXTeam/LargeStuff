@@ -35,7 +35,7 @@ public class BlockDamager extends BlockTEBase
     @Override
     public boolean onBlockActivated(World w, BlockPos pos, IBlockState s, EntityPlayer p, EnumHand hand, @Nullable ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        p.addChatMessage(new TextComponentString(hitX + "," + hitY + "," + hitZ));
+
         return true;
     }
 

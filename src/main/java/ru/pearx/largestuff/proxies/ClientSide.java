@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import ru.pearx.largestuff.ItemRenderer;
 import ru.pearx.largestuff.items.LSItems;
-import ru.pearx.largestuff.te.EnderTeleportingStationEntity;
-import ru.pearx.largestuff.te.EnderTeleportingStationRender;
+import ru.pearx.largestuff.te.ETSRender;
+import ru.pearx.largestuff.te.TE_ETS;
 
 public class ClientSide extends CommonProxy
 {
@@ -36,7 +36,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void RegisterRender() 
 	{
-        ClientRegistry.bindTileEntitySpecialRenderer(EnderTeleportingStationEntity.class, new EnderTeleportingStationRender());
+        ClientRegistry.bindTileEntitySpecialRenderer(TE_ETS.class, new ETSRender());
         super.RegisterRender();
 	}
 
@@ -54,7 +54,7 @@ public class ClientSide extends CommonProxy
 		ItemRenderer.reg(LSItems.PrimalTalisman);
 		ItemRenderer.reg(LSItems.ItemBlockDes);
 		ItemRenderer.reg(LSItems.ItemBlockDamager);
-		ItemRenderer.reg(LSItems.ItemBlockEnderTeleportingStation);
+		ItemRenderer.reg(LSItems.ItemBlockETS);
 		ItemRenderer.reg(LSItems.EndermanFlash);
 		ItemRenderer.reg(LSItems.DesHelmet);
 		ItemRenderer.reg(LSItems.DesSuit);

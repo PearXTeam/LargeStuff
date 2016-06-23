@@ -15,7 +15,7 @@ item.desFocus.lore1=Shift+Right-Click to bind an item.
 item.endermanFlash.name=Enderman Flash
 
 tile.desBlock.name=Des Block
-tile.enderTeleportingStation.name=Ender Teleporting Station
+tile.ets.name=Ender Teleporting Station
 tile.damager.name=Damager
 
 itemGroup.largestuff=LargeStuff

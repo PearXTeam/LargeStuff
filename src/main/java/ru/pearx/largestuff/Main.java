@@ -18,7 +18,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import ru.pearx.largestuff.items.LSItems;
 import ru.pearx.largestuff.proxies.CommonProxy;
-import ru.pearx.largestuff.te.EnderTeleportingStationEntity;
+import ru.pearx.largestuff.te.TE_ETS;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class Main
 
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
-	public static final String Version = "2.1.0";
+	public static final String Version = "2.1.1";
 
 	public static boolean ShowOreDict;
 	public static int DimID;
@@ -60,12 +60,12 @@ public class Main
 		GameRegistry.register(LSItems.DesPlate);
 		GameRegistry.register(LSItems.DesDoubleRod);
 		GameRegistry.register(LSItems.DesFocus);
-		GameRegistry.registerTileEntity(EnderTeleportingStationEntity.class, "teEnderTeleportingStation");
-		GameRegistry.register(LSItems.BlockEnderTeleportingStation);
+		GameRegistry.registerTileEntity(TE_ETS.class, "teETS");
+		GameRegistry.register(LSItems.BlockETS);
 		GameRegistry.register(LSItems.BlockDes);
 		GameRegistry.register(LSItems.EndermanFlash);
 		GameRegistry.register(LSItems.ItemBlockDes);
-		GameRegistry.register(LSItems.ItemBlockEnderTeleportingStation);
+		GameRegistry.register(LSItems.ItemBlockETS);
 		GameRegistry.register(LSItems.DesHelmet);
 		GameRegistry.register(LSItems.DesSuit);
 		GameRegistry.register(LSItems.DesLeggings);
@@ -136,7 +136,7 @@ public class Main
 				{
 						"stickDes", "stickDes"
 				}));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.BlockEnderTeleportingStation), new Object[]
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.BlockETS), new Object[]
 				{
 					"S#S",
 					"SPS",

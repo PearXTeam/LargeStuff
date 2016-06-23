@@ -24,13 +24,13 @@ public class LSItems
 	public static Item EndermanFlash = new Item().setUnlocalizedName("endermanFlash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "endermanFlash");
 	public static Item DesFocus = new ItemDesFocus();
 	
-	public static Block BlockEnderTeleportingStation = new BlockETS(Material.ROCK);
+	public static Block BlockETS = new BlockETS(Material.ROCK);
 	//public static Block BlockMagicalAlloyer = new BlockMagicalAlloyer();
 	public static Block BlockDes = new DesBlock();
 	public static Block BlockDamager = new BlockDamager();
 
 	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "desBlock");
-	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "enderTeleportingStation");
+	public static Item ItemBlockETS = new ItemBlock(BlockETS).setRegistryName(Main.ModID, "ets");
 	//public static Item ItemBlockMagicalAlloyer = new ItemBlock(BlockMagicalAlloyer);
 	public static Item ItemBlockDamager = new ItemBlock(BlockDamager).setRegistryName(Main.ModID, "damager");
 
