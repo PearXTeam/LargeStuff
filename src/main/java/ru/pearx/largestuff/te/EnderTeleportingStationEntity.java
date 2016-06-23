@@ -1,10 +1,15 @@
 package ru.pearx.largestuff.te;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -16,9 +21,10 @@ import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.items.LSItems;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class TE_ETS extends TileEntity implements ITickable
+public class EnderTeleportingStationEntity extends TileEntity implements ITickable
 {
 	public double posX;
 	public double posY = -9999999;
@@ -26,20 +32,20 @@ public class TE_ETS extends TileEntity implements ITickable
 	public int dim;
 
 	@Override
-	public void func_145839_a(NBTTagCompound tag)
+	public void readFromNBT(NBTTagCompound tag)
 	{
-		super.func_145839_a(tag);
-		this.Setup(tag.func_74769_h("posX"), tag.func_74769_h("posY"), tag.func_74769_h("posZ"), tag.func_74762_e("dim"));
+		super.readFromNBT(tag);
+		this.Setup(tag.getDouble("posX"), tag.getDouble("posY"), tag.getDouble("posZ"), tag.getInteger("dim"));
 	}
 
 	@Override
-	public NBTTagCompound func_189515_b(NBTTagCompound tag)
+	public NBTTagCompound writeToNBT(NBTTagCompound tag)
 	{
-		super.func_189515_b(tag);
-		tag.func_74780_a("posX", this.posX);
-		tag.func_74780_a("posY", this.posY);
-		tag.func_74780_a("posZ", this.posZ);
-		tag.func_74768_a("dim", this.dim);
+		super.writeToNBT(tag);
+		tag.setDouble("posX", this.posX);
+		tag.setDouble("posY", this.posY);
+		tag.setDouble("posZ", this.posZ);
+		tag.setInteger("dim", this.dim);
 		return tag;
 	}
 
@@ -58,17 +64,17 @@ public class TE_ETS extends TileEntity implements ITickable
 
 	@Nullable
 	@Override
-	public SPacketUpdateTileEntity func_189518_D_()
+	public SPacketUpdateTileEntity getUpdatePacket()
 	{
 		NBTTagCompound nbtTag = new NBTTagCompound();
-		func_189515_b(nbtTag);
-		return new SPacketUpdateTileEntity(this.func_174877_v(), 1, nbtTag);
+		writeToNBT(nbtTag);
+		return new SPacketUpdateTileEntity(this.getPos(), 1, nbtTag);
 	}
 
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet)
 	{
-		func_145839_a(packet.func_148857_g());
+		readFromNBT(packet.getNbtCompound());
 	}
 
 	public void Reset()
@@ -82,40 +88,40 @@ public class TE_ETS extends TileEntity implements ITickable
 	public ItemStack GetDrop()
 	{
 		NBTTagCompound tag = new NBTTagCompound();
-		tag.func_74780_a("posX", this.posX);
-		tag.func_74780_a("posY", this.posY);
-		tag.func_74780_a("posZ", this.posZ);
-		tag.func_74768_a("dim", this.dim);
+		tag.setDouble("posX", this.posX);
+		tag.setDouble("posY", this.posY);
+		tag.setDouble("posZ", this.posZ);
+		tag.setInteger("dim", this.dim);
 		ItemStack stack = new ItemStack(LSItems.DesFocus, 1);
-		stack.func_77982_d(tag);
+		stack.setTagCompound(tag);
 		return stack;
 	}
 
 	public static void Use(World w, Entity e, BlockPos pos)
 	{
-		TileEntity te = w.func_175625_s(pos);
-		if (te instanceof TE_ETS)
+		TileEntity te = w.getTileEntity(pos);
+		if (te instanceof EnderTeleportingStationEntity)
 		{
-			TE_ETS ets = (TE_ETS) te;
+			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity) te;
 			if (ets.isSetuped())
 			{
-				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.field_187534_aX, SoundCategory.PLAYERS);
+				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
 			}
 		}
 	}
 
 	@Override
-	public void func_73660_a()
+	public void update()
 	{
 		if (isSetuped())
 		{
-			World w = func_145831_w();
-			BlockPos p = func_174877_v();
-			List<Entity> ent = w.func_72872_a(Entity.class, new AxisAlignedBB(p.func_177958_n(), p.func_177956_o(), p.func_177952_p(), p.func_177958_n() + 1, p.func_177956_o() + 2, p.func_177952_p() + 1));
+			World w = getWorld();
+			BlockPos p = getPos();
+			List<Entity> ent = w.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(p.getX(), p.getY(), p.getZ(), p.getX() + 1, p.getY() + 2, p.getZ() + 1));
 			for (Entity e : ent)
 			{
 				if (!Main.UseCollisionEvent)
-					Use(e.func_130014_f_(), e, e.func_180425_c());
+					Use(e.getEntityWorld(), e, e.getPosition());
 
 			}
 		}

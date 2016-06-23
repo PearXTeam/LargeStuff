@@ -1,5 +1,6 @@
 package ru.pearx.largestuff.items;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,45 +18,45 @@ import java.util.List;
 public class ItemCoordStore extends Item
 {
     @Override
-    public ActionResult<ItemStack> func_77659_a(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
     {
         NBTTagCompound tag;
-        if(!w.field_72995_K)
+        if(!w.isRemote)
         {
-            if (p.func_70093_af())
+            if (p.isSneaking())
             {
                 tag = new NBTTagCompound();
-                tag.func_74780_a("posX", p.field_70165_t);
-                tag.func_74780_a("posY", p.field_70163_u);
-                tag.func_74780_a("posZ", p.field_70161_v);
-                tag.func_74768_a("dim", p.field_71093_bK);
-                stack.func_77982_d(tag);
+                tag.setDouble("posX", p.posX);
+                tag.setDouble("posY", p.posY);
+                tag.setDouble("posZ", p.posZ);
+                tag.setInteger("dim", p.dimension);
+                stack.setTagCompound(tag);
             }
         }
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 
     @Override
-    public void func_77624_a(ItemStack stack, EntityPlayer p, List l, boolean b)
+    public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b)
     {
-        NBTTagCompound tag = stack.func_77978_p();
+        NBTTagCompound tag = stack.getTagCompound();
         if(tag != null)
         {
-            if(tag.func_74764_b("dim") && tag.func_74764_b("posX") && tag.func_74764_b("posY") && tag.func_74764_b("posZ"))
+            if(tag.hasKey("dim") && tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ"))
             {
                 l.add("__________");
-                l.add("Dim: " + tag.func_74762_e("dim") + ". XYZ: " + (int)tag.func_74769_h("posX") + ", " + (int)tag.func_74769_h("posY") + ", "+ (int)tag.func_74769_h("posZ") + ".");
+                l.add("Dim: " + tag.getInteger("dim") + ". XYZ: " + (int)tag.getDouble("posX") + ", " + (int)tag.getDouble("posY") + ", "+ (int)tag.getDouble("posZ") + ".");
             }
         }
     }
 
     @Override
-    public boolean func_77636_d(ItemStack stack)
+    public boolean hasEffect(ItemStack stack)
     {
-        NBTTagCompound tag = stack.func_77978_p();
+        NBTTagCompound tag = stack.getTagCompound();
         if(tag != null)
         {
-            if(tag.func_74764_b("dim") && tag.func_74764_b("posX") && tag.func_74764_b("posY") && tag.func_74764_b("posZ"))
+            if(tag.hasKey("dim") && tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ"))
                 return true;
         }
         return false;

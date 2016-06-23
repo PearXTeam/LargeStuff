@@ -17,19 +17,19 @@ public class ModelBlockBase extends BlockTEBase
     }
 
     @Override
-    public boolean func_149686_d(IBlockState state)
+    public boolean isFullCube(IBlockState state)
     {
         return false;
     }
 
     @Override
-    public EnumBlockRenderType func_149645_b(IBlockState state)
+    public EnumBlockRenderType getRenderType(IBlockState state)
     {
         return EnumBlockRenderType.INVISIBLE;
     }
 
     @Override
-    public boolean func_149662_c(IBlockState state)
+    public boolean isOpaqueCube(IBlockState state)
     {
         return false;
     }

@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import ru.pearx.largestuff.ItemRenderer;
 import ru.pearx.largestuff.items.LSItems;
-import ru.pearx.largestuff.te.ETSRender;
-import ru.pearx.largestuff.te.TE_ETS;
+import ru.pearx.largestuff.te.EnderTeleportingStationEntity;
+import ru.pearx.largestuff.te.EnderTeleportingStationRender;
 
 public class ClientSide extends CommonProxy
 {
@@ -16,7 +16,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void TeleportToSpawn(World w, Entity p) 
 	{
-		if(!w.field_72995_K)
+		if(!w.isRemote)
 		{
 			SharedProxy.TeleportToSpawn(p);
 		}
@@ -26,7 +26,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound, SoundCategory cat)
 	{
-		if(!w.field_72995_K)
+		if(!w.isRemote)
 		{
 			SharedProxy.Teleport(p, dim, x, y, z, sound, cat);
 		}
@@ -36,7 +36,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void RegisterRender() 
 	{
-        ClientRegistry.bindTileEntitySpecialRenderer(TE_ETS.class, new ETSRender());
+        ClientRegistry.bindTileEntitySpecialRenderer(EnderTeleportingStationEntity.class, new EnderTeleportingStationRender());
         super.RegisterRender();
 	}
 
@@ -54,7 +54,7 @@ public class ClientSide extends CommonProxy
 		ItemRenderer.reg(LSItems.PrimalTalisman);
 		ItemRenderer.reg(LSItems.ItemBlockDes);
 		ItemRenderer.reg(LSItems.ItemBlockDamager);
-		ItemRenderer.reg(LSItems.ItemBlockETS);
+		ItemRenderer.reg(LSItems.ItemBlockEnderTeleportingStation);
 		ItemRenderer.reg(LSItems.EndermanFlash);
 		ItemRenderer.reg(LSItems.DesHelmet);
 		ItemRenderer.reg(LSItems.DesSuit);

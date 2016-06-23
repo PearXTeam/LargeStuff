@@ -17,20 +17,20 @@ public class BlockTEBase extends BlockContainer
     public BlockTEBase(Material materialIn)
     {
         super(materialIn);
-        func_149647_a(Main.TabLargeStuff);
-        func_149672_a(SoundType.field_185851_d);
+        setCreativeTab(Main.TabLargeStuff);
+        setSoundType(SoundType.STONE);
     }
 
     @Override
-    public TileEntity func_149915_a(World worldIn, int meta)
+    public TileEntity createNewTileEntity(World worldIn, int meta)
     {
         return null;
     }
 
     @Override
-    public void func_180663_b(World w, BlockPos pos, IBlockState state)
+    public void breakBlock(World w, BlockPos pos, IBlockState state)
     {
-        w.func_175713_t(pos);
-        super.func_180663_b(w, pos, state);
+        w.removeTileEntity(pos);
+        super.breakBlock(w, pos, state);
     }
 }

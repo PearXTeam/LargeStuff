@@ -19,15 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
-
 /**
  * Created by mrAppleXZ on 31.05.2016.
  */
 public class DesArmor extends ItemArmor implements ISpecialArmor
 {
-    public static ItemArmor.ArmorMaterial Des = EnumHelper.addArmorMaterial("DesArmor", Main.ModID + ":desArmor", 165, new int[]{1, 1, 1, 1}, 1, SoundEvents.field_187716_o, 0.1F);
+    public static ItemArmor.ArmorMaterial Des = EnumHelper.addArmorMaterial("DesArmor", Main.ModID + ":desArmor", 165, new int[]{1, 1, 1, 1}, 1, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.1F);
 
     public DesArmor(ArmorMaterial material, int render, EntityEquipmentSlot slot)
     {
@@ -49,16 +46,16 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
                 unloc = "desBoots";
                 break;
         }
-        func_77655_b(unloc);
+        setUnlocalizedName(unloc);
         setRegistryName(unloc);
-        func_77637_a(Main.TabLargeStuff);
+        setCreativeTab(Main.TabLargeStuff);
     }
 
     @Override
     public ArmorProperties getProperties(EntityLivingBase p, ItemStack armor, DamageSource source, double damage, int slot)
     {
         if(isFullSet(p))
-            return new ArmorProperties(1, 1, MathHelper.func_76128_c(damage * 4));
+            return new ArmorProperties(1, 1, MathHelper.floor_double(damage * 4));
         return new ArmorProperties(1, 1, 0);
     }
 
@@ -71,32 +68,32 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
     @Override
     public void damageArmor(EntityLivingBase entity, ItemStack stack, DamageSource source, int damage, int slot)
     {
-        stack.func_77972_a(damage, entity);
+        stack.damageItem(damage, entity);
     }
 
     @Override
-    public void func_77624_a(ItemStack stack, EntityPlayer p, List<String> l, boolean advanced)
+    public void addInformation(ItemStack stack, EntityPlayer p, List<String> l, boolean advanced)
     {
-        Iterable<ItemStack> v = p.func_184193_aE();
+        Iterable<ItemStack> v = p.getArmorInventoryList();
 
         if(isFullSet(p))
         {
-            l.add(I18n.func_135052_a("desArmor.enabled"));
-            l.add(I18n.func_135052_a("desArmor.tooltip.1"));
+            l.add(I18n.format("desArmor.enabled"));
+            l.add(I18n.format("desArmor.tooltip.1"));
         }
         else
-            l.add(I18n.func_135052_a("desArmor.disabled"));
+            l.add(I18n.format("desArmor.disabled"));
     }
 
     public static boolean isFullSet(EntityLivingBase p)
     {
-        ArrayList<ItemStack> l = Lists.newArrayList(p.func_184193_aE());
+        ArrayList<ItemStack> l = Lists.newArrayList(p.getArmorInventoryList());
         boolean b = true;
         for(ItemStack s : l)
         {
             if(s != null)
             {
-                if(!(s.func_77973_b() instanceof DesArmor))
+                if(!(s.getItem() instanceof DesArmor))
                 {
                     b = false;
                 }

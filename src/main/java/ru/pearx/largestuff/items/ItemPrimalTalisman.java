@@ -16,22 +16,22 @@ public class ItemPrimalTalisman extends Item
 {
 	public ItemPrimalTalisman()
 	{
-		func_77637_a(Main.TabLargeStuff);
-		func_77625_d(1);
-		func_77655_b("primalTalisman");
+		setCreativeTab(Main.TabLargeStuff);
+		setMaxStackSize(1);
+		setUnlocalizedName("primalTalisman");
 		setRegistryName(Main.ModID, "primalTalisman");
 	}
 
 	@Override
-	public void func_77624_a(ItemStack stack, EntityPlayer p, List l, boolean b) 
+	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b) 
 	{
-		l.add(I18n.func_135052_a("item.primalTalisman.lore1", new Object[0]));
+		l.add(I18n.format("item.primalTalisman.lore1", new Object[0]));
 	}
 
 	@Override
-	public ActionResult<ItemStack> func_77659_a(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
 	{
-		if(!w.field_72995_K)
+		if(!w.isRemote)
 		{
 			Main.proxy.TeleportToSpawn(w, p);
 		}

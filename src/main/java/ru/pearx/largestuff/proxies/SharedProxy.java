@@ -17,60 +17,60 @@ public class SharedProxy
 {
 	public static void TeleportToSpawn(Entity p)
 	{
-		BlockPos spawnCoords = DimensionManager.getWorld(0).func_175694_M();
+		BlockPos spawnCoords = DimensionManager.getWorld(0).getSpawnPoint();
 		World world = DimensionManager.getWorld(Main.DimID);
-		if (p.field_71093_bK != Main.DimID)
+		if (p.dimension != Main.DimID)
 		{
-			p.func_184204_a(Main.DimID);
-			for (int i = (int)p.field_70165_t - 5; i < p.field_70165_t + 5; i++)
+			p.changeDimension(Main.DimID);
+			for (int i = (int)p.posX - 5; i < p.posX + 5; i++)
 			{
-			    for (int j = (int)p.field_70163_u - 5; j < p.field_70165_t + 5; j++)
+			    for (int j = (int)p.posY - 5; j < p.posX + 5; j++)
 			    { 
-			        for (int k = (int)p.field_70161_v - 5; k < p.field_70165_t + 5; k++)
+			        for (int k = (int)p.posZ - 5; k < p.posX + 5; k++)
 			        { 
-			               if (world.func_180495_p(new BlockPos(i, j, k)).func_177230_c() == Blocks.field_150343_Z || world.func_180495_p(new BlockPos(i, j, k)).func_177230_c() == Blocks.field_150427_aO)
+			               if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.OBSIDIAN || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.PORTAL)
 			               {
-			                       world.func_175698_g(new BlockPos(i, j, k));
+			                       world.setBlockToAir(new BlockPos(i, j, k));
 			               }
 			        }
 			    }
 			}
 		}
-		if(world.func_180495_p(spawnCoords).func_177230_c().func_176212_b(world, spawnCoords, EnumFacing.UP))
+		if(world.getBlockState(spawnCoords).getBlock().isBlockSolid(world, spawnCoords, EnumFacing.UP))
 		{
 			if(p instanceof EntityLivingBase)
-				p.func_70634_a(spawnCoords.func_177958_n() + 0.50000, world.func_175645_m(spawnCoords).func_177956_o(), spawnCoords.func_177952_p() + 0.50000);
+				p.setPositionAndUpdate(spawnCoords.getX() + 0.50000, world.getHeight(spawnCoords).getY(), spawnCoords.getZ() + 0.50000);
 			else
-				p.func_70107_b(spawnCoords.func_177958_n() + 0.50000, world.func_175645_m(spawnCoords).func_177956_o(), spawnCoords.func_177952_p() + 0.50000);
+				p.setPosition(spawnCoords.getX() + 0.50000, world.getHeight(spawnCoords).getY(), spawnCoords.getZ() + 0.50000);
 		}
 		else
 		{
 			if(p instanceof EntityLivingBase)
-				p.func_70634_a(spawnCoords.func_177958_n() + 0.50000, spawnCoords.func_177956_o(), spawnCoords.func_177952_p() + 0.50000);
+				p.setPositionAndUpdate(spawnCoords.getX() + 0.50000, spawnCoords.getY(), spawnCoords.getZ() + 0.50000);
 			else
-				p.func_70107_b(spawnCoords.func_177958_n() + 0.50000, spawnCoords.func_177956_o(), spawnCoords.func_177952_p() + 0.50000);
+				p.setPosition(spawnCoords.getX() + 0.50000, spawnCoords.getY(), spawnCoords.getZ() + 0.50000);
 		}
 		if(p instanceof EntityPlayer)
 		{
-			world.func_184133_a((EntityPlayer) p, spawnCoords, SoundEvents.field_187571_bR, SoundCategory.AMBIENT, 1, 1);
+			world.playSound((EntityPlayer) p, spawnCoords, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.AMBIENT, 1, 1);
 		}
 	}
 	
 	public static void Teleport(Entity p, int dim, double x, double y, double z, SoundEvent sound, SoundCategory cat)
 	{
 		World world = DimensionManager.getWorld(dim);
-		if (p.field_71093_bK != dim)
+		if (p.dimension != dim)
 		{
-			p.func_184204_a(dim);
-			for (int i = (int)p.field_70165_t - 5; i < p.field_70165_t + 5; i++)
+			p.changeDimension(dim);
+			for (int i = (int)p.posX - 5; i < p.posX + 5; i++)
 			{
-				for (int j = (int)p.field_70163_u - 5; j < p.field_70165_t + 5; j++)
+				for (int j = (int)p.posY - 5; j < p.posX + 5; j++)
 				{
-					for (int k = (int)p.field_70161_v - 5; k < p.field_70165_t + 5; k++)
+					for (int k = (int)p.posZ - 5; k < p.posX + 5; k++)
 					{
-						if (world.func_180495_p(new BlockPos(i, j, k)).func_177230_c() == Blocks.field_150343_Z || world.func_180495_p(new BlockPos(i, j, k)).func_177230_c() == Blocks.field_150427_aO)
+						if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.OBSIDIAN || world.getBlockState(new BlockPos(i, j, k)).getBlock() == Blocks.PORTAL)
 						{
-							world.func_175698_g(new BlockPos(i, j, k));
+							world.setBlockToAir(new BlockPos(i, j, k));
 						}
 					}
 				}
@@ -78,14 +78,14 @@ public class SharedProxy
 		}
 		if(p instanceof EntityLivingBase)
 		{
-			p.func_70634_a(x, y, z);
-			p.field_70143_R = 0;
+			p.setPositionAndUpdate(x, y, z);
+			p.fallDistance = 0;
 		}
 		else
-			p.func_70107_b(x, y, z);
+			p.setPosition(x, y, z);
 		if(p instanceof EntityPlayer)
 		{
-			world.func_184148_a((EntityPlayer) p, x, y, z, sound, cat, 1, 1);
+			world.playSound((EntityPlayer) p, x, y, z, sound, cat, 1, 1);
 		}
 	}
 }

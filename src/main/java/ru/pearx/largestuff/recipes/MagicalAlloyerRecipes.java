@@ -35,7 +35,7 @@ public class MagicalAlloyerRecipes
         for(int i = 0; i < recipes.size(); i++)
         {
             MagicalAlloyerIn mai = in.get(i);
-            if(ItemStack.func_179545_c(mai.one, input.one) && ItemStack.func_179545_c(mai.two, input.two) && ItemStack.func_179545_c(mai.three, input.three))
+            if(ItemStack.areItemsEqual(mai.one, input.one) && ItemStack.areItemsEqual(mai.two, input.two) && ItemStack.areItemsEqual(mai.three, input.three))
             {
                 return out.get(i);
             }

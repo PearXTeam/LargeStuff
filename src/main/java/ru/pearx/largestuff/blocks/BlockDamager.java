@@ -24,23 +24,23 @@ public class BlockDamager extends BlockTEBase
 {
     public BlockDamager()
     {
-        super(Material.field_151575_d);
-        func_149663_c("damager");
-        func_149711_c(2F);
-        func_149752_b(5F);
-        func_149672_a(SoundType.field_185848_a);
+        super(Material.WOOD);
+        setUnlocalizedName("damager");
+        setHardness(2F);
+        setResistance(5F);
+        setSoundType(SoundType.WOOD);
         setRegistryName(Main.ModID, "damager");
     }
 
     @Override
-    public boolean func_180639_a(World w, BlockPos pos, IBlockState s, EntityPlayer p, EnumHand hand, @Nullable ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World w, BlockPos pos, IBlockState s, EntityPlayer p, EnumHand hand, @Nullable ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-
+        p.addChatMessage(new TextComponentString(hitX + "," + hitY + "," + hitZ));
         return true;
     }
 
     @Override
-    public TileEntity func_149915_a(World worldIn, int meta)
+    public TileEntity createNewTileEntity(World worldIn, int meta)
     {
         return new TEDamager();
     }
