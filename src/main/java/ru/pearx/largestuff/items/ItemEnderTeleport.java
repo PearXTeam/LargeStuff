@@ -18,25 +18,25 @@ public class ItemEnderTeleport extends ItemCoordStore
 {
     public ItemEnderTeleport()
 	{
-		setCreativeTab(Main.TabLargeStuff);
-		setMaxStackSize(1);
-		setUnlocalizedName("enderTeleport");
+		func_77637_a(Main.TabLargeStuff);
+		func_77625_d(1);
+		func_77655_b("enderTeleport");
 		setRegistryName(Main.ModID, "enderTeleport");
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+	public ActionResult<ItemStack> func_77659_a(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
 	{
-		super.onItemRightClick(stack, w, p, hand);
-		if(!w.isRemote)
+		super.func_77659_a(stack, w, p, hand);
+		if(!w.field_72995_K)
 		{
-			if(!p.isSneaking())
+			if(!p.func_70093_af())
 			{
-				NBTTagCompound tag = stack.getTagCompound();
+				NBTTagCompound tag = stack.func_77978_p();
 				if (tag != null)
 				{
-					if(tag.hasKey("dim") && tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ"))
-						Main.proxy.Teleport(w, p, tag.getInteger("dim"), tag.getInteger("posX"), tag.getInteger("posY"), tag.getInteger("posZ"), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
+					if(tag.func_74764_b("dim") && tag.func_74764_b("posX") && tag.func_74764_b("posY") && tag.func_74764_b("posZ"))
+						Main.proxy.Teleport(w, p, tag.func_74762_e("dim"), tag.func_74762_e("posX"), tag.func_74762_e("posY"), tag.func_74762_e("posZ"), SoundEvents.field_187534_aX, SoundCategory.PLAYERS);
 				}
 			}
 		}
@@ -44,10 +44,10 @@ public class ItemEnderTeleport extends ItemCoordStore
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b) 
+	public void func_77624_a(ItemStack stack, EntityPlayer p, List l, boolean b) 
 	{
-		l.add(I18n.format("item.enderTeleport.lore1", new Object[0]));
-		l.add(I18n.format("item.enderTeleport.lore2", new Object[0]));
-		l.add(I18n.format("item.enderTeleport.lore3", new Object[0]));
+		l.add(I18n.func_135052_a("item.enderTeleport.lore1", new Object[0]));
+		l.add(I18n.func_135052_a("item.enderTeleport.lore2", new Object[0]));
+		l.add(I18n.func_135052_a("item.enderTeleport.lore3", new Object[0]));
 	}
 }

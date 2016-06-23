@@ -11,16 +11,16 @@ public class ItemDesFocus extends ItemCoordStore
 {
 	public ItemDesFocus()
 	{
-		setCreativeTab(Main.TabLargeStuff);
-		setMaxStackSize(1);
-		setUnlocalizedName("desFocus");
+		func_77637_a(Main.TabLargeStuff);
+		func_77625_d(1);
+		func_77655_b("desFocus");
         setRegistryName(Main.ModID, "desFocus");
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b)
+	public void func_77624_a(ItemStack stack, EntityPlayer p, List l, boolean b)
 	{
-		l.add(I18n.format("item.desFocus.lore1", new Object[0]));
-		super.addInformation(stack, p, l, b);
+		l.add(I18n.func_135052_a("item.desFocus.lore1", new Object[0]));
+		super.func_77624_a(stack, p, l, b);
 	}
 }

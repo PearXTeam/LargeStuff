@@ -16,7 +16,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void TeleportToSpawn(World w, Entity p) 
 	{
-		if(!w.isRemote)
+		if(!w.field_72995_K)
 		{
 			SharedProxy.TeleportToSpawn(p);
 		}
@@ -26,7 +26,7 @@ public class ClientSide extends CommonProxy
 	@Override
 	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound, SoundCategory cat)
 	{
-		if(!w.isRemote)
+		if(!w.field_72995_K)
 		{
 			SharedProxy.Teleport(p, dim, x, y, z, sound, cat);
 		}

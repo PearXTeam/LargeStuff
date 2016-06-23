@@ -26,20 +26,20 @@ public class TE_ETS extends TileEntity implements ITickable
 	public int dim;
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag)
+	public void func_145839_a(NBTTagCompound tag)
 	{
-		super.readFromNBT(tag);
-		this.Setup(tag.getDouble("posX"), tag.getDouble("posY"), tag.getDouble("posZ"), tag.getInteger("dim"));
+		super.func_145839_a(tag);
+		this.Setup(tag.func_74769_h("posX"), tag.func_74769_h("posY"), tag.func_74769_h("posZ"), tag.func_74762_e("dim"));
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound tag)
+	public NBTTagCompound func_189515_b(NBTTagCompound tag)
 	{
-		super.writeToNBT(tag);
-		tag.setDouble("posX", this.posX);
-		tag.setDouble("posY", this.posY);
-		tag.setDouble("posZ", this.posZ);
-		tag.setInteger("dim", this.dim);
+		super.func_189515_b(tag);
+		tag.func_74780_a("posX", this.posX);
+		tag.func_74780_a("posY", this.posY);
+		tag.func_74780_a("posZ", this.posZ);
+		tag.func_74768_a("dim", this.dim);
 		return tag;
 	}
 
@@ -58,17 +58,17 @@ public class TE_ETS extends TileEntity implements ITickable
 
 	@Nullable
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket()
+	public SPacketUpdateTileEntity func_189518_D_()
 	{
 		NBTTagCompound nbtTag = new NBTTagCompound();
-		writeToNBT(nbtTag);
-		return new SPacketUpdateTileEntity(this.getPos(), 1, nbtTag);
+		func_189515_b(nbtTag);
+		return new SPacketUpdateTileEntity(this.func_174877_v(), 1, nbtTag);
 	}
 
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet)
 	{
-		readFromNBT(packet.getNbtCompound());
+		func_145839_a(packet.func_148857_g());
 	}
 
 	public void Reset()
@@ -82,40 +82,40 @@ public class TE_ETS extends TileEntity implements ITickable
 	public ItemStack GetDrop()
 	{
 		NBTTagCompound tag = new NBTTagCompound();
-		tag.setDouble("posX", this.posX);
-		tag.setDouble("posY", this.posY);
-		tag.setDouble("posZ", this.posZ);
-		tag.setInteger("dim", this.dim);
+		tag.func_74780_a("posX", this.posX);
+		tag.func_74780_a("posY", this.posY);
+		tag.func_74780_a("posZ", this.posZ);
+		tag.func_74768_a("dim", this.dim);
 		ItemStack stack = new ItemStack(LSItems.DesFocus, 1);
-		stack.setTagCompound(tag);
+		stack.func_77982_d(tag);
 		return stack;
 	}
 
 	public static void Use(World w, Entity e, BlockPos pos)
 	{
-		TileEntity te = w.getTileEntity(pos);
+		TileEntity te = w.func_175625_s(pos);
 		if (te instanceof TE_ETS)
 		{
 			TE_ETS ets = (TE_ETS) te;
 			if (ets.isSetuped())
 			{
-				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
+				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.field_187534_aX, SoundCategory.PLAYERS);
 			}
 		}
 	}
 
 	@Override
-	public void update()
+	public void func_73660_a()
 	{
 		if (isSetuped())
 		{
-			World w = getWorld();
-			BlockPos p = getPos();
-			List<Entity> ent = w.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(p.getX(), p.getY(), p.getZ(), p.getX() + 1, p.getY() + 2, p.getZ() + 1));
+			World w = func_145831_w();
+			BlockPos p = func_174877_v();
+			List<Entity> ent = w.func_72872_a(Entity.class, new AxisAlignedBB(p.func_177958_n(), p.func_177956_o(), p.func_177952_p(), p.func_177958_n() + 1, p.func_177956_o() + 2, p.func_177952_p() + 1));
 			for (Entity e : ent)
 			{
 				if (!Main.UseCollisionEvent)
-					Use(e.getEntityWorld(), e, e.getPosition());
+					Use(e.func_130014_f_(), e, e.func_180425_c());
 
 			}
 		}

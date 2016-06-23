@@ -21,8 +21,8 @@ public class LSEvents
         Entity ent = e.getEntity();
         if(ent instanceof EntityEnderman)
         {
-            int i = ent.getEntityWorld().rand.nextInt(5) + e.getLootingLevel();
-            e.getEntityLiving().entityDropItem(new ItemStack(LSItems.EndermanFlash, i), 2);
+            int i = ent.func_130014_f_().field_73012_v.nextInt(5) + e.getLootingLevel();
+            e.getEntityLiving().func_70099_a(new ItemStack(LSItems.EndermanFlash, i), 2);
         }
     }
 
@@ -34,7 +34,7 @@ public class LSEvents
             int[] ids = OreDictionary.getOreIDs(e.getItemStack());
             if(ids.length != 0)
             {
-                e.getToolTip().add(I18n.format("largestuff.oreDictNames"));
+                e.getToolTip().add(I18n.func_135052_a("largestuff.oreDictNames"));
                 for(int i : ids)
                 {
                     e.getToolTip().add(" -" +OreDictionary.getOreName(i));

@@ -12,16 +12,16 @@ public class TEDamager extends TileEntity
     int damage = 0;
 
     @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound compound)
+    public NBTTagCompound func_189515_b(NBTTagCompound compound)
     {
         NBTTagCompound tag = compound;
-        tag.setInteger("tookDamage", damage);
+        tag.func_74768_a("tookDamage", damage);
         return tag;
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound compound)
+    public void func_145839_a(NBTTagCompound compound)
     {
-        damage = compound.getInteger("tookDamage");
+        damage = compound.func_74762_e("tookDamage");
     }
 }

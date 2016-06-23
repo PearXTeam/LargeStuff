@@ -10,13 +10,13 @@ public class DesBlock extends Block
 
 	public DesBlock()
 	{
-		super(Material.ROCK);
-		setCreativeTab(Main.TabLargeStuff);
-		setUnlocalizedName("desBlock");
-		setHardness(150.0F);
-		setResistance(6000.0F);
+		super(Material.field_151576_e);
+		func_149647_a(Main.TabLargeStuff);
+		func_149663_c("desBlock");
+		func_149711_c(150.0F);
+		func_149752_b(6000.0F);
 		setHarvestLevel("pickaxe", 3);
-        setSoundType(SoundType.METAL);
+        func_149672_a(SoundType.field_185852_e);
 		setRegistryName(Main.ModID, "desBlock");
 	}
 

@@ -1,6 +1,0 @@
-{
-  "parent":"largestuff:item/def",
-  "textures": {
-    "layer0":"largestuff:blocks/enderTeleportingStationBlock"
-  }
-}

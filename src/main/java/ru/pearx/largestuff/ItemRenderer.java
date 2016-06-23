@@ -12,6 +12,6 @@ public class ItemRenderer
 {
     public static void reg(Item itm)
     {
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(itm, 0 , new ModelResourceLocation("largestuff:" + itm.getRegistryName().toString().substring(Main.ModID.length() + 1), "inventory"));
+        Minecraft.func_71410_x().func_175599_af().func_175037_a().func_178086_a(itm, 0 , new ModelResourceLocation("largestuff:" + itm.getRegistryName().toString().substring(Main.ModID.length() + 1), "inventory"));
     }
 }

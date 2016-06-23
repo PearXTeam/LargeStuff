@@ -92,14 +92,14 @@ public class Main
 					"#P#",
 					"#F#",
 					"S#S",
-					'P', Blocks.YELLOW_FLOWER, 'F', "dirt", 'S', "stickWood"
+					'P', Blocks.field_150327_N, 'F', "dirt", 'S', "stickWood"
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.PrimalTalisman), new Object[]
 				{
 						"#P#",
 						"#F#",
 						"S#S",
-						'P', Blocks.RED_FLOWER, 'F', "dirt", 'S', "stickWood"
+						'P', Blocks.field_150328_O, 'F', "dirt", 'S', "stickWood"
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesCase), new Object[]
 				{
@@ -113,7 +113,7 @@ public class Main
 					"#P#",
 					"#R#",
 					"#CB",
-					'P', Items.ENDER_PEARL, 'R', "stickDes", 'C', LSItems.DesCase, 'B', Blocks.STONE_BUTTON
+					'P', Items.field_151079_bi, 'R', "stickDes", 'C', LSItems.DesCase, 'B', Blocks.field_150430_aB
 				}));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesPlate), new Object[]
 				{
@@ -122,7 +122,7 @@ public class Main
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesMetal), new Object[]
 				{
-						"gemDiamond", Blocks.OBSIDIAN, Items.ENDER_PEARL
+						"gemDiamond", Blocks.field_150343_Z, Items.field_151079_bi
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesShard, 9), new Object[]
 				{
@@ -162,7 +162,7 @@ public class Main
 				}));
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesFocus), new Object[]
 				{
-						"nuggetDes", "nuggetDes", Items.ENDER_EYE
+						"nuggetDes", "nuggetDes", Items.field_151061_bv
 				}));
 		proxy.RegisterRender();
 		MinecraftForge.EVENT_BUS.register(new LSEvents());
@@ -183,7 +183,7 @@ public class Main
 	public static CreativeTabs TabLargeStuff = new CreativeTabs("largestuff")
 	{
 		@Override
-		public Item getTabIconItem()
+		public Item func_78016_d()
 		{
 			return LSItems.EnderTeleport;
 		}
