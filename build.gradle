@@ -18,19 +18,19 @@ repositories {
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
-version = "2.1.1"
+version = "2.1.2"
 group= "ru.pearx.largestuff"
 archivesBaseName = "LargeStuff"
 
 minecraft {
-    version = "1.10-12.18.0.1982-1.10.0"
+    version = "1.10.2-12.18.1.2011"
     runDir = "run"
 	useDepAts = true
     mappings = "snapshot_20160518"
 }
 
 dependencies {
-  deobfCompile "mezz.jei:jei_1.10:3.7.0.218"
+  deobfCompile "mezz.jei:jei_1.10.2:3.7.5.228"
 }
 
 processResources

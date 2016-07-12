@@ -27,7 +27,7 @@ public class BlockETS extends ModelBlockBase
 	{
 		super(mat);
 		setUnlocalizedName("enderTeleportingStation");
-		setRegistryName(Main.ModID, "enderTeleportingStation");
+		setRegistryName(Main.ModID, "ets");
         setHardness(1.0f);
         setResistance(3.0f);
 	}

@@ -20,17 +20,15 @@ public class ClientSide extends CommonProxy
 		{
 			SharedProxy.TeleportToSpawn(p);
 		}
-		super.TeleportToSpawn(w, p);
 	}
 
 	@Override
-	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound, SoundCategory cat)
+	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound)
 	{
 		if(!w.isRemote)
 		{
-			SharedProxy.Teleport(p, dim, x, y, z, sound, cat);
+			SharedProxy.Teleport(p, dim, x, y, z, sound);
 		}
-		super.Teleport(w, p, dim, x, y, z, sound, cat);
 	}
 	
 	@Override
@@ -53,7 +51,6 @@ public class ClientSide extends CommonProxy
 		ItemRenderer.reg(LSItems.EnderTeleport);
 		ItemRenderer.reg(LSItems.PrimalTalisman);
 		ItemRenderer.reg(LSItems.ItemBlockDes);
-		ItemRenderer.reg(LSItems.ItemBlockDamager);
 		ItemRenderer.reg(LSItems.ItemBlockEnderTeleportingStation);
 		ItemRenderer.reg(LSItems.EndermanFlash);
 		ItemRenderer.reg(LSItems.DesHelmet);

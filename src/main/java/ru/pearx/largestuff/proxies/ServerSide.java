@@ -11,13 +11,11 @@ public class ServerSide extends CommonProxy
 	public void TeleportToSpawn(World w, Entity p) 
 	{
 		SharedProxy.TeleportToSpawn(p);
-		super.TeleportToSpawn(w, p);
 	}
 
 	@Override
-	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound, SoundCategory cat)
+	public void Teleport(World w, Entity p, int dim, double x, double y, double z, SoundEvent sound)
 	{
-		SharedProxy.Teleport(p, dim, x, y, z, sound, cat);
-		super.Teleport(w, p, dim, x, y, z, sound, cat);
+		SharedProxy.Teleport(p, dim, x, y, z, sound);
 	}
 }

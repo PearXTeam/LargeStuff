@@ -36,7 +36,7 @@ public class ItemEnderTeleport extends ItemCoordStore
 				if (tag != null)
 				{
 					if(tag.hasKey("dim") && tag.hasKey("posX") && tag.hasKey("posY") && tag.hasKey("posZ"))
-						Main.proxy.Teleport(w, p, tag.getInteger("dim"), tag.getInteger("posX"), tag.getInteger("posY"), tag.getInteger("posZ"), SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
+						Main.proxy.Teleport(w, p, tag.getInteger("dim"), tag.getInteger("posX"), tag.getInteger("posY"), tag.getInteger("posZ"), SoundEvents.ENTITY_ENDERMEN_TELEPORT);
 				}
 			}
 		}

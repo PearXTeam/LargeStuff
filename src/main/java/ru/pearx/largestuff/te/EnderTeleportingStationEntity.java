@@ -105,7 +105,7 @@ public class EnderTeleportingStationEntity extends TileEntity implements ITickab
 			EnderTeleportingStationEntity ets = (EnderTeleportingStationEntity) te;
 			if (ets.isSetuped())
 			{
-				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS);
+				Main.proxy.Teleport(w, e, ets.dim, ets.posX, ets.posY, ets.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT);
 			}
 		}
 	}

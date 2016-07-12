@@ -30,7 +30,7 @@ public class Main
 
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
-	public static final String Version = "2.1.0";
+	public static final String Version = "2.1.2";
 
 	public static boolean ShowOreDict;
 	public static int DimID;
@@ -60,7 +60,7 @@ public class Main
 		GameRegistry.register(LSItems.DesPlate);
 		GameRegistry.register(LSItems.DesDoubleRod);
 		GameRegistry.register(LSItems.DesFocus);
-		GameRegistry.registerTileEntity(EnderTeleportingStationEntity.class, "teEnderTeleportingStation");
+		GameRegistry.registerTileEntity(EnderTeleportingStationEntity.class, "teETS");
 		GameRegistry.register(LSItems.BlockEnderTeleportingStation);
 		GameRegistry.register(LSItems.BlockDes);
 		GameRegistry.register(LSItems.EndermanFlash);
@@ -72,8 +72,6 @@ public class Main
 		GameRegistry.register(LSItems.DesBoots);
 		//GameRegistry.register(LSItems.ItemBlockMagicalAlloyer);
 		//GameRegistry.register(LSItems.BlockMagicalAlloyer);
-		GameRegistry.register(LSItems.BlockDamager);
-		GameRegistry.register(LSItems.ItemBlockDamager);
 
 		OreDictionary.registerOre("nuggetDes", LSItems.DesShard);
 		OreDictionary.registerOre("stickDes", LSItems.DesRod);
