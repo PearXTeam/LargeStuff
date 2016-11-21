@@ -50,5 +50,6 @@ public class ItemEnderTeleport extends ItemCoordStore
 		l.add(I18n.format("item.ender_teleport.lore1", new Object[0]));
 		l.add(I18n.format("item.ender_teleport.lore2", new Object[0]));
 		l.add(I18n.format("item.ender_teleport.lore3", new Object[0]));
+        super.addInformation(stack, p, l, b);
 	}
 }

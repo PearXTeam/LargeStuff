@@ -13,14 +13,14 @@ public class ItemDesFocus extends ItemCoordStore
 	{
 		setCreativeTab(Main.TabLargeStuff);
 		setMaxStackSize(1);
-		setUnlocalizedName("desFocus");
-        setRegistryName(Main.ModID, "desFocus");
+		setUnlocalizedName("des_focus");
+        setRegistryName(Main.ModID, "des_focus");
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b)
 	{
-		l.add(I18n.format("item.desFocus.lore1", new Object[0]));
+		l.add(I18n.format("item.des_focus.lore1", new Object[0]));
 		super.addInformation(stack, p, l, b);
 	}
 }
