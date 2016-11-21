@@ -30,7 +30,7 @@ public class Main
 
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
-	public static final String Version = "2.1.2";
+	public static final String Version = "2.2.0";
 
 	public static boolean ShowOreDict;
 	public static int DimID;
@@ -60,7 +60,7 @@ public class Main
 		GameRegistry.register(LSItems.DesPlate);
 		GameRegistry.register(LSItems.DesDoubleRod);
 		GameRegistry.register(LSItems.DesFocus);
-		GameRegistry.registerTileEntity(EnderTeleportingStationEntity.class, "teETS");
+		GameRegistry.registerTileEntity(EnderTeleportingStationEntity.class, "te_ets");
 		GameRegistry.register(LSItems.BlockEnderTeleportingStation);
 		GameRegistry.register(LSItems.BlockDes);
 		GameRegistry.register(LSItems.EndermanFlash);
@@ -181,14 +181,9 @@ public class Main
 	public static CreativeTabs TabLargeStuff = new CreativeTabs("largestuff")
 	{
 		@Override
-		public Item getTabIconItem()
+		public ItemStack getTabIconItem()
 		{
-			return LSItems.EnderTeleport;
+			return new ItemStack(LSItems.EnderTeleport, 1);
 		}
 	};
-
-	public enum SlotType
-	{
-		IN, OUT
-	}
 }

@@ -20,14 +20,15 @@ public class ItemEnderTeleport extends ItemCoordStore
 	{
 		setCreativeTab(Main.TabLargeStuff);
 		setMaxStackSize(1);
-		setUnlocalizedName("enderTeleport");
-		setRegistryName(Main.ModID, "enderTeleport");
+		setUnlocalizedName("ender_teleport");
+		setRegistryName(Main.ModID, "ender_teleport");
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand hand)
 	{
-		super.onItemRightClick(stack, w, p, hand);
+		super.onItemRightClick(w, p, hand);
+		ItemStack stack = p.getHeldItem(hand);
 		if(!w.isRemote)
 		{
 			if(!p.isSneaking())
@@ -46,8 +47,8 @@ public class ItemEnderTeleport extends ItemCoordStore
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b) 
 	{
-		l.add(I18n.format("item.enderTeleport.lore1", new Object[0]));
-		l.add(I18n.format("item.enderTeleport.lore2", new Object[0]));
-		l.add(I18n.format("item.enderTeleport.lore3", new Object[0]));
+		l.add(I18n.format("item.ender_teleport.lore1", new Object[0]));
+		l.add(I18n.format("item.ender_teleport.lore2", new Object[0]));
+		l.add(I18n.format("item.ender_teleport.lore3", new Object[0]));
 	}
 }

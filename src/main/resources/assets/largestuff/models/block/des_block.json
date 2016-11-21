@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "largestuff:blocks/desBlock"
+    "all": "largestuff:blocks/des_block"
   }
 }

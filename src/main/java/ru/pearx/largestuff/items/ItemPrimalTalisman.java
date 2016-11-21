@@ -18,19 +18,20 @@ public class ItemPrimalTalisman extends Item
 	{
 		setCreativeTab(Main.TabLargeStuff);
 		setMaxStackSize(1);
-		setUnlocalizedName("primalTalisman");
-		setRegistryName(Main.ModID, "primalTalisman");
+		setUnlocalizedName("primal_talisman");
+		setRegistryName(Main.ModID, "primal_talisman");
 	}
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer p, List l, boolean b) 
 	{
-		l.add(I18n.format("item.primalTalisman.lore1", new Object[0]));
+		l.add(I18n.format("item.primal_talisman.lore1", new Object[0]));
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+	public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand hand)
 	{
+		ItemStack stack = p.getHeldItem(hand);
 		if(!w.isRemote)
 		{
 			Main.proxy.TeleportToSpawn(w, p);

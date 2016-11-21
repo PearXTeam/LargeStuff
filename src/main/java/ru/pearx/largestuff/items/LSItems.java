@@ -14,22 +14,20 @@ public class LSItems
 {
 	public static Item PrimalTalisman = new ItemPrimalTalisman();
 	public static Item EnderTeleport = new ItemEnderTeleport();
-	public static Item DesMetal = new Item().setUnlocalizedName("desMetal").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desMetal");
-	public static Item DesShard = new Item().setUnlocalizedName("desShard").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desShard");
-	public static Item DesCase = new Item().setUnlocalizedName("desCase").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desCase");
-	public static Item DesRod = new Item().setUnlocalizedName("desRod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desRod");
-	public static Item DesPlate = new Item().setUnlocalizedName("desPlate").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desPlate");
-	public static Item DesDoubleRod = new Item().setUnlocalizedName("desDoubleRod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "desDoubleRod");
-	public static Item EndermanFlash = new Item().setUnlocalizedName("endermanFlash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "endermanFlash");
+	public static Item DesMetal = new Item().setUnlocalizedName("des_metal").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_metal");
+	public static Item DesShard = new Item().setUnlocalizedName("des_shard").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_shard");
+	public static Item DesCase = new Item().setUnlocalizedName("des_case").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_case");
+	public static Item DesRod = new Item().setUnlocalizedName("des_rod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_rod");
+	public static Item DesPlate = new Item().setUnlocalizedName("des_plate").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_plate");
+	public static Item DesDoubleRod = new Item().setUnlocalizedName("des_double_rod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_double_rod");
+	public static Item EndermanFlash = new Item().setUnlocalizedName("enderman_flash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "enderman_flash");
 	public static Item DesFocus = new ItemDesFocus();
 	
 	public static Block BlockEnderTeleportingStation = new BlockETS(Material.ROCK);
-	//public static Block BlockMagicalAlloyer = new BlockMagicalAlloyer();
 	public static Block BlockDes = new DesBlock();
 
-	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "desBlock");
+	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "des_block");
 	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "ets");
-	//public static Item ItemBlockMagicalAlloyer = new ItemBlock(BlockMagicalAlloyer);
 
 	public static Item DesHelmet = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.HEAD);
 	public static Item DesSuit = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.CHEST);

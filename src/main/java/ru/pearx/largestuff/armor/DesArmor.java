@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class DesArmor extends ItemArmor implements ISpecialArmor
 {
-    public static ItemArmor.ArmorMaterial Des = EnumHelper.addArmorMaterial("DesArmor", Main.ModID + ":desArmor", 165, new int[]{1, 1, 1, 1}, 1, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.1F);
+    public static ItemArmor.ArmorMaterial Des = EnumHelper.addArmorMaterial("DesArmor", Main.ModID + ":des_armor", 165, new int[]{1, 1, 1, 1}, 1, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.1F);
 
     public DesArmor(ArmorMaterial material, int render, EntityEquipmentSlot slot)
     {
@@ -34,16 +34,16 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
         switch (slot)
         {
             case HEAD:
-                unloc = "desHelmet";
+                unloc = "des_helmet";
                 break;
             case CHEST:
-                unloc = "desSuit";
+                unloc = "des_suit";
                 break;
             case LEGS:
-                unloc = "desLeggings";
+                unloc = "des_leggings";
                 break;
             case FEET:
-                unloc = "desBoots";
+                unloc = "des_boots";
                 break;
         }
         setUnlocalizedName(unloc);
@@ -55,7 +55,7 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
     public ArmorProperties getProperties(EntityLivingBase p, ItemStack armor, DamageSource source, double damage, int slot)
     {
         if(isFullSet(p))
-            return new ArmorProperties(1, 1, MathHelper.floor_double(damage * 4));
+            return new ArmorProperties(1, 1, MathHelper.floor(damage * 4));
         return new ArmorProperties(1, 1, 0);
     }
 
@@ -78,11 +78,11 @@ public class DesArmor extends ItemArmor implements ISpecialArmor
 
         if(isFullSet(p))
         {
-            l.add(I18n.format("desArmor.enabled"));
-            l.add(I18n.format("desArmor.tooltip.1"));
+            l.add(I18n.format("des_armor.enabled"));
+            l.add(I18n.format("des_armor.tooltip.1"));
         }
         else
-            l.add(I18n.format("desArmor.disabled"));
+            l.add(I18n.format("des_armor.disabled"));
     }
 
     public static boolean isFullSet(EntityLivingBase p)

@@ -1,6 +1,6 @@
 {
   "parent":"largestuff:item/def",
   "textures": {
-    "layer0":"largestuff:items/desFocus"
+    "layer0":"largestuff:items/enderman_flash"
   }
 }

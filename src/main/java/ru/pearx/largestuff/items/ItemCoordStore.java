@@ -18,8 +18,9 @@ import java.util.List;
 public class ItemCoordStore extends Item
 {
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World w, EntityPlayer p, EnumHand hand)
+    public ActionResult<ItemStack> onItemRightClick(World w, EntityPlayer p, EnumHand hand)
     {
+        ItemStack stack = p.getHeldItem(hand);
         NBTTagCompound tag;
         if(!w.isRemote)
         {

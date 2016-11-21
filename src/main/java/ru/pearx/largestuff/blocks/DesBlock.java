@@ -12,12 +12,12 @@ public class DesBlock extends Block
 	{
 		super(Material.ROCK);
 		setCreativeTab(Main.TabLargeStuff);
-		setUnlocalizedName("desBlock");
+		setUnlocalizedName("des_block");
 		setHardness(150.0F);
 		setResistance(6000.0F);
 		setHarvestLevel("pickaxe", 3);
         setSoundType(SoundType.METAL);
-		setRegistryName(Main.ModID, "desBlock");
+		setRegistryName(Main.ModID, "des_block");
 	}
 
 }

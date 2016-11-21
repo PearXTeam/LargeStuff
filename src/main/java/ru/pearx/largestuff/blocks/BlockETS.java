@@ -26,7 +26,7 @@ public class BlockETS extends ModelBlockBase
 	public BlockETS(Material mat)
 	{
 		super(mat);
-		setUnlocalizedName("enderTeleportingStation");
+		setUnlocalizedName("ets");
 		setRegistryName(Main.ModID, "ets");
         setHardness(1.0f);
         setResistance(3.0f);
@@ -59,7 +59,7 @@ public class BlockETS extends ModelBlockBase
 				tag.setDouble("posZ", ets.posZ);
 				tag.setInteger("dim", ets.dim);
 				stack.setTagCompound(tag);
-				w.spawnEntityInWorld(new EntityItem(w, pos.getX(), pos.getY(), pos.getZ(), stack));
+				w.spawnEntity(new EntityItem(w, pos.getX(), pos.getY(), pos.getZ(), stack));
 			}
 		}
 		super.breakBlock(w, pos, state);
@@ -92,8 +92,9 @@ public class BlockETS extends ModelBlockBase
 	}
 
 	@Override
-	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumHand hand, ItemStack held, EnumFacing side, float hitX, float hitY, float hitZ)
+	public boolean onBlockActivated(World w, BlockPos pos, IBlockState state, EntityPlayer p, EnumHand hand, EnumFacing heldItem, float side, float hitX, float hitY)
 	{
+		ItemStack held = p.getHeldItem(hand);
 		TileEntity te = w.getTileEntity(pos);
 		if(te instanceof EnderTeleportingStationEntity)
 		{
@@ -103,14 +104,14 @@ public class BlockETS extends ModelBlockBase
 				if(ets.isSetuped())
 				{
 					if(!w.isRemote)
-						w.spawnEntityInWorld(new EntityItem(w, p.posX, p.posY, p.posZ, ets.GetDrop()));
+						w.spawnEntity(new EntityItem(w, p.posX, p.posY, p.posZ, ets.GetDrop()));
 					ets.Reset();
 					return true;
 				}
 			}
 			else
 			{
-				if(held != null)
+				if(!held.isEmpty())
 				{
 					if(held.getItem() == LSItems.DesFocus)
 					{
@@ -121,7 +122,7 @@ public class BlockETS extends ModelBlockBase
 							{
 								if(!p.isCreative())
 								{
-									--held.stackSize;
+									held.setCount(held.getCount()-1);
 								}
 								if(!ets.isSetuped())
 								{
@@ -130,7 +131,7 @@ public class BlockETS extends ModelBlockBase
 								else
 								{
 									if(!w.isRemote)
-										w.spawnEntityInWorld(new EntityItem(w, p.posX, p.posY, p.posZ, ets.GetDrop()));
+										w.spawnEntity(new EntityItem(w, p.posX, p.posY, p.posZ, ets.GetDrop()));
 									ets.Reset();
 									ets.Setup(tag.getDouble("posX"), tag.getDouble("posY"), tag.getDouble("posZ"), tag.getInteger("dim"));
 								}

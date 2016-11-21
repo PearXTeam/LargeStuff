@@ -1,6 +1,6 @@
 {
   "parent":"largestuff:item/def",
   "textures": {
-    "layer0":"largestuff:items/desRod"
+    "layer0":"largestuff:items/ender_teleport"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent":"largestuff:item/def",
   "textures": {
-    "layer0":"largestuff:items/desCase"
+    "layer0":"largestuff:items/primal_talisman"
   }
 }

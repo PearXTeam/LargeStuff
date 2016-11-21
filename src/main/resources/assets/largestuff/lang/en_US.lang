@@ -1,32 +1,32 @@
-item.primalTalisman.name=Primal Talisman
-item.primalTalisman.lore1=Teleports you to the global spawn point.
-item.enderTeleport.name=Ender Teleport
-item.enderTeleport.lore1=Teleports you to the given location.
-item.enderTeleport.lore2=Shift+Right-Click to bind a teleport.
-item.enderTeleport.lore3=Right-Click to teleport.
-item.desMetal.name=Des Metal
-item.desShard.name=Des Shard
-item.desRod.name=Des Rod
-item.desCase.name=Des Case
-item.desPlate.name=Des Plate
-item.desDoubleRod.name=Double Des Rod
-item.desFocus.name=Des Focus
-item.desFocus.lore1=Shift+Right-Click to bind an item.
-item.endermanFlash.name=Enderman Flash
+item.primal_talisman.name=Primal Talisman
+item.primal_talisman.lore1=Teleports you to the global spawn point.
+item.ender_teleport.name=Ender Teleport
+item.ender_teleport.lore1=Teleports you to the given location.
+item.ender_teleport.lore2=Shift+Right-Click to bind a teleport.
+item.ender_teleport.lore3=Right-Click to teleport.
+item.des_metal.name=Des Metal
+item.des_shard.name=Des Shard
+item.des_rod.name=Des Rod
+item.des_case.name=Des Case
+item.des_plate.name=Des Plate
+item.des_double_rod.name=Double Des Rod
+item.des_focus.name=Des Focus
+item.des_focus.lore1=Shift+Right-Click to bind an item.
+item.enderman_flash.name=Enderman Flash
 
-tile.desBlock.name=Des Block
-tile.enderTeleportingStation.name=Ender Teleporting Station
+tile.des_block.name=Des Block
+tile.ets.name=Ender Teleporting Station
 tile.damager.name=Damager
 
 itemGroup.largestuff=LargeStuff
 
 largestuff.oreDictNames=Ore Dictionary Names:
 
-item.desHelmet.name=Des Helmet
-item.desSuit.name=Des Suit
-item.desLeggings.name=Des Leggings
-item.desBoots.name=Des Boots
+item.des_helmet.name=Des Helmet
+item.des_suit.name=Des Suit
+item.des_leggings.name=Des Leggings
+item.des_boots.name=Des Boots
 
-desArmor.disabled=§4Wear is not a full set of Des Armor. Armor features disabled!
-desArmor.enabled=§2Wear a full set of Des Armor. Armor features enabled!
-desArmor.tooltip.1=§2 -Blocks 50 percents of any damage.
+des_armor.disabled=§4Wear is not a full set of Des Armor. Armor features disabled!
+des_armor.enabled=§2Wear a full set of Des Armor. Armor features enabled!
+des_armor.tooltip.1=§2 -Blocks 50 percents of any damage.
