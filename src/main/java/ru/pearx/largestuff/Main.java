@@ -3,7 +3,6 @@ package ru.pearx.largestuff;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -30,11 +29,12 @@ public class Main
 
 	public static final String ModID = "largestuff";
 	public static final String ModName = "LargeStuff";
-	public static final String Version = "2.2.0";
+	public static final String Version = "2.3.0";
 
 	public static boolean ShowOreDict;
 	public static int DimID;
 	public static boolean UseCollisionEvent;
+	public static int DesBridgeLength;
 
 	@SidedProxy(clientSide="ru.pearx.largestuff.proxies.ClientSide", serverSide="ru.pearx.largestuff.proxies.ServerSide")
 	public static CommonProxy proxy;
@@ -49,6 +49,7 @@ public class Main
 		DimID = conf.getInt("SpawnDimID", Configuration.CATEGORY_GENERAL, 0, -1, 256, "The ID of the spawn dimension (0 = Overworld, -1 = Nether, 1 = End");
 		ShowOreDict = conf.getBoolean("ShowOreDictNames", Configuration.CATEGORY_GENERAL, true, "Show OreDict names for items? (F3 + H - Enable)");
 		UseCollisionEvent = conf.getBoolean("UseCollisionEvent", Configuration.CATEGORY_GENERAL, false, "Use collision event for Ender Teleporting Station? True = SLIGHTLY faster, teleports only players and some mobs, False = SLIGHTLY lower, teleports all entities.");
+		DesBridgeLength = conf.getInt("DesBridgeLength", Configuration.CATEGORY_GENERAL, 16, 1, Integer.MAX_VALUE, "The Des Bridge length in blocks.");
 		conf.save();
 
 		GameRegistry.register(LSItems.PrimalTalisman);
@@ -70,6 +71,9 @@ public class Main
 		GameRegistry.register(LSItems.DesSuit);
 		GameRegistry.register(LSItems.DesLeggings);
 		GameRegistry.register(LSItems.DesBoots);
+		GameRegistry.register(LSItems.BlockDesBridge);
+		GameRegistry.register(LSItems.ItemBlockDesBridge);
+		GameRegistry.register(LSItems.BlockHLight);
 		//GameRegistry.register(LSItems.ItemBlockMagicalAlloyer);
 		//GameRegistry.register(LSItems.BlockMagicalAlloyer);
 

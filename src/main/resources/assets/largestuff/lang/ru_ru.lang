@@ -1,0 +1,33 @@
+item.primal_talisman.name=Изначальный талисман
+item.primal_talisman.lore1=Телепортирует Вас на глобальный спавнпоинт.
+item.ender_teleport.name=Телепорт Края
+item.ender_teleport.lore1=Телепортирует Вас в заданную локацию.
+item.ender_teleport.lore2=Shift+ПКМ, чтобы привязать телепорт.
+item.ender_teleport.lore3=ПКМ для телепортации.
+item.des_metal.name=Дес-сплав
+item.des_shard.name=Осколок Дес
+item.des_rod.name=Дес стержень
+item.des_case.name=Дес корпус
+item.des_plate.name=Дес пластина
+item.des_double_rod.name=Двойная Дес пластина
+item.des_focus.name=Дес фокус
+item.des_focus.lore1=Shift+ПКМ, чтобы привязать предмет
+item.enderman_flash.name=Плоть Эндермена
+
+tile.des_block.name=Дес блок
+tile.ets.name=Станция Телепортации Края
+tile.damager.name=Повреждатель
+tile.des_bridge.name=Дес мост
+
+itemGroup.largestuff=LargeStuff
+
+largestuff.oreDictNames=Имена Ore Dictionary:
+
+item.des_helmet.name=Дес шлем
+item.des_suit.name=Дес костюм
+item.des_leggings.name=Дес штанишки
+item.des_boots.name=Дес сапоги
+
+des_armor.disabled=§4Одет не весь Дес костюм. Функции брони выключены!
+des_armor.enabled=§2Одет весь Дес костюм. Функции брони включены!
+des_armor.tooltip.1=§2 -Блокирует 50 процентов любого урона.

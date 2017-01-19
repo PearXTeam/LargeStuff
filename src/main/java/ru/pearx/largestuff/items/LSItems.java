@@ -7,7 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import ru.pearx.largestuff.Main;
 import ru.pearx.largestuff.armor.DesArmor;
+import ru.pearx.largestuff.blocks.BlockDesBridge;
 import ru.pearx.largestuff.blocks.BlockETS;
+import ru.pearx.largestuff.blocks.BlockHLight;
 import ru.pearx.largestuff.blocks.DesBlock;
 
 public class LSItems 
@@ -25,9 +27,12 @@ public class LSItems
 	
 	public static Block BlockEnderTeleportingStation = new BlockETS(Material.ROCK);
 	public static Block BlockDes = new DesBlock();
+	public static Block BlockDesBridge = new BlockDesBridge();
+	public static Block BlockHLight = new BlockHLight();
 
 	public static Item ItemBlockDes = new ItemBlock(BlockDes).setRegistryName(Main.ModID, "des_block");
 	public static Item ItemBlockEnderTeleportingStation = new ItemBlock(BlockEnderTeleportingStation).setRegistryName(Main.ModID, "ets");
+	public static Item ItemBlockDesBridge = new ItemBlock(BlockDesBridge).setRegistryName(Main.ModID, "des_bridge");
 
 	public static Item DesHelmet = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.HEAD);
 	public static Item DesSuit = new DesArmor(DesArmor.Des, 1, EntityEquipmentSlot.CHEST);
