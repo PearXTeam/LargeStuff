@@ -25,6 +25,9 @@ public class LSItems
 	public static Item DesDoubleRod = new Item().setUnlocalizedName("des_double_rod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_double_rod");
 	public static Item EndermanFlash = new Item().setUnlocalizedName("enderman_flash").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "enderman_flash");
 	public static Item DesFocus = new ItemDesFocus();
+	public static Item DesRedstoneController = new Item().setUnlocalizedName("des_redstone_controller").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_redstone_controller");
+	public static Item LightiumCrystal = new Item().setUnlocalizedName("lightium_crystal").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "lightium_crystal");
+	public static Item SolidLightGenerator = new Item().setUnlocalizedName("solid_light_generator").setCreativeTab(Main.TabLargeStuff).setRegistryName("solid_light_generator");
 	
 	public static Block BlockEnderTeleportingStation = new BlockETS(Material.ROCK);
 	public static Block BlockDes = new DesBlock();

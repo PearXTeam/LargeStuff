@@ -75,6 +75,9 @@ public class Main
 		GameRegistry.register(LSItems.ItemBlockDesBridge);
 		GameRegistry.register(LSItems.BlockHLight);
 		GameRegistry.register(LSItems.DesLargeCase);
+		GameRegistry.register(LSItems.DesRedstoneController);
+		GameRegistry.register(LSItems.LightiumCrystal);
+		GameRegistry.register(LSItems.SolidLightGenerator);
 		//GameRegistry.register(LSItems.ItemBlockMagicalAlloyer);
 		//GameRegistry.register(LSItems.BlockMagicalAlloyer);
 
@@ -174,6 +177,19 @@ public class Main
 						"NNN",
 						'N', "nuggetDes", 'C', LSItems.DesCase
 				}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesRedstoneController), new Object[]
+				{
+						"#N#",
+						"NRN",
+						'N', "nuggetDes", 'R', "dustRedstone"
+				}));
+		GameRegistry.addShapedRecipe(new ItemStack(LSItems.BlockDesBridge), new Object[]
+				{
+						"_",
+						"+",
+						"R",
+						'_', LSItems.SolidLightGenerator, '+', LSItems.DesLargeCase, 'R', LSItems.DesRedstoneController
+				});
 		proxy.RegisterRender();
 		MinecraftForge.EVENT_BUS.register(new LSEvents());
 	}

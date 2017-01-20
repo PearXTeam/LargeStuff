@@ -11,15 +11,29 @@ buildscript {
     }
 }
 
+repositories {
+  //JEI
+  maven {
+    url = "http://dvs1.progwml6.com/files/maven"
+  }
+}
+
+dependencies {
+  // compile against the JEI API
+  deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}:api"
+  // at runtime, use the full JEI jar
+  runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+}
+
 apply plugin: 'net.minecraftforge.gradle.forge'
-version = "2.2.0"
+version = "3.0.0_pre1"
 group= "ru.pearx.largestuff"
 archivesBaseName = "LargeStuff"
 
 minecraft {
-    version = "1.11-13.19.0.2154"
+    version = "${mc_version}-${forge_version}"
     runDir = "run"
-    mappings = "snapshot_20161120"
+    mappings = "${mappings}"
 }
 
 processResources
