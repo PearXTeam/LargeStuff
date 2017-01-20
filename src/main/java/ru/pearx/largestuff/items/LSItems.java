@@ -19,6 +19,7 @@ public class LSItems
 	public static Item DesMetal = new Item().setUnlocalizedName("des_metal").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_metal");
 	public static Item DesShard = new Item().setUnlocalizedName("des_shard").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_shard");
 	public static Item DesCase = new Item().setUnlocalizedName("des_case").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_case");
+	public static Item DesLargeCase = new Item().setUnlocalizedName("des_large_case").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_large_case");
 	public static Item DesRod = new Item().setUnlocalizedName("des_rod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_rod");
 	public static Item DesPlate = new Item().setUnlocalizedName("des_plate").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_plate");
 	public static Item DesDoubleRod = new Item().setUnlocalizedName("des_double_rod").setCreativeTab(Main.TabLargeStuff).setRegistryName(Main.ModID, "des_double_rod");

@@ -24,7 +24,7 @@ public class BlockHLight extends Block
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-        return new AxisAlignedBB(0, 0.8f, 0, 1f, 1f, 1f);
+        return new AxisAlignedBB(0, 0.75f, 0, 1f, 1f, 1f);
     }
 
     @Override
@@ -48,6 +48,6 @@ public class BlockHLight extends Block
     @Override
     public BlockRenderLayer getBlockLayer()
     {
-        return BlockRenderLayer.CUTOUT;
+        return BlockRenderLayer.TRANSLUCENT;
     }
 }

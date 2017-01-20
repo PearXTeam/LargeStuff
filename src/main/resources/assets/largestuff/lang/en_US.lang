@@ -13,6 +13,7 @@ item.des_double_rod.name=Double Des Rod
 item.des_focus.name=Des Focus
 item.des_focus.lore1=Shift+Right-Click to bind an item.
 item.enderman_flash.name=Enderman Flash
+item.des_large_case.name=Large Des Case
 
 tile.des_block.name=Des Block
 tile.ets.name=Ender Teleporting Station

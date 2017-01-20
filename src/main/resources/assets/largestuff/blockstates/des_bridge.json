@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "largestuff:des_bridge" },
+    "facing=south": { "model": "largestuff:des_bridge", "y": 180 },
+    "facing=west":  { "model": "largestuff:des_bridge", "y": 270 },
+    "facing=east":  { "model": "largestuff:des_bridge", "y": 90 }
+  }
+}

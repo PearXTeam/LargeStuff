@@ -74,6 +74,7 @@ public class Main
 		GameRegistry.register(LSItems.BlockDesBridge);
 		GameRegistry.register(LSItems.ItemBlockDesBridge);
 		GameRegistry.register(LSItems.BlockHLight);
+		GameRegistry.register(LSItems.DesLargeCase);
 		//GameRegistry.register(LSItems.ItemBlockMagicalAlloyer);
 		//GameRegistry.register(LSItems.BlockMagicalAlloyer);
 
@@ -165,6 +166,13 @@ public class Main
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(LSItems.DesFocus), new Object[]
 				{
 						"nuggetDes", "nuggetDes", Items.ENDER_EYE
+				}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(LSItems.DesLargeCase), new Object[]
+				{
+						"NNN",
+						"NCN",
+						"NNN",
+						'N', "nuggetDes", 'C', LSItems.DesCase
 				}));
 		proxy.RegisterRender();
 		MinecraftForge.EVENT_BUS.register(new LSEvents());

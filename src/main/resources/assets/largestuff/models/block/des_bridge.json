@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "largestuff:blocks/des_bridge_side",
+    "front": "largestuff:blocks/des_bridge_front",
+    "side": "largestuff:blocks/des_bridge_side"
+  }
+}

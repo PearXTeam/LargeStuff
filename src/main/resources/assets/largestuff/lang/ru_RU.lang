@@ -13,6 +13,7 @@ item.des_double_rod.name=Двойная Дес пластина
 item.des_focus.name=Дес фокус
 item.des_focus.lore1=Shift+ПКМ, чтобы привязать предмет
 item.enderman_flash.name=Плоть Эндермена
+item.des_large_case.name=Большой Дес корпус
 
 tile.des_block.name=Дес блок
 tile.ets.name=Станция Телепортации Края
