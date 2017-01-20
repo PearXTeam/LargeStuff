@@ -11,6 +11,9 @@ buildscript {
     }
 }
 
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven'
+
 repositories {
   //JEI
   maven {
@@ -25,7 +28,6 @@ dependencies {
   runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
-apply plugin: 'net.minecraftforge.gradle.forge'
 version = "3.0.0_pre1"
 group= "ru.pearx.largestuff"
 archivesBaseName = "LargeStuff"
@@ -33,7 +35,7 @@ archivesBaseName = "LargeStuff"
 minecraft {
     version = "${mc_version}-${forge_version}"
     runDir = "run"
-    mappings = "${mappings}"
+    mappings = "${mappings_version}"
 }
 
 processResources
